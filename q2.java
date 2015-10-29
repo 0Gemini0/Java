@@ -2,7 +2,7 @@ class Person {
 
    // Properties of the class...
    private String name;
-   private int    age;
+   public int    age;
    private int hands;
    
     
@@ -18,6 +18,7 @@ class Person {
       System.out.println("Hi, my name's " + name);
       System.out.println("and my age is " + age);
       System.out.println("and I have " + hands + " hands");
+	  commentAboutAge();
    }
    public void commentAboutAge() {
       if (age < 5) {
@@ -35,6 +36,10 @@ class Person {
       age++;
    }
 
+   public void growOlderBy(int years) {
+      age = age + years;
+   }
+
    public void giveKnightnood() {
       name = "sir " + name;
    }
@@ -46,16 +51,16 @@ class PersonTest {
    // The main method is the point of entry into the program...
    public static void main(String[] args) {
 
-      Person ls = new Person("Luke Skywalker",34,1);
-      Person wp = new Person("Winston Peters",48,2);
+      Person ls = new Person();
+      Person wp = new Person();
 
-      ls.talk();
-      wp.talk();
+      System.out.println("and my age is " + ls.age);
       
-      ls.commentAboutAge();
-      wp.commentAboutAge();
+	  ls.talk();
+      wp.talk();
 
       wp.growOlder();
+      ls.growOlderBy(10);
 	  wp.giveKnightnood();
    }
 }
